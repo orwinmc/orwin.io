@@ -5,12 +5,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <h1>Michael Orwin</h1>
         <h2>Software Developer</h2>
         <br />
@@ -23,6 +23,24 @@ function App() {
         <br />
         <br />
         <h4>This website is currently under development</h4>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </header>
     </div>
   );
