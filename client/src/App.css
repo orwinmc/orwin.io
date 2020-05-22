@@ -1,8 +1,12 @@
 .App {
   text-align: center;
-  background: linear-gradient(135deg, #A138E2, #5A26C1);
+  //background: linear-gradient(135deg, #A138E2, #5A26C1);
+  background: linear-gradient(145deg, rgba(33, 3, 120, 1),
+                                      rgba(52, 3, 170, 1),
+                                      rgba(20, 90, 255, 1));
   color: white;
   font-family: 'Nunito', sans-serif;
+  height: 100vh;
 }
 
 h1 {
