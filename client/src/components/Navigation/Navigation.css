@@ -3,16 +3,32 @@ nav a {
   color: white;
   font-weight: 300;
   font-size: 1.1em;
-  padding-left:1em;
-  padding-right:1em;
+
+  display:block;
+  padding:0.5em 1.5em 0.5em 1.5em;
+  position:relative;
+
+  transition: all 0.5s;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  display:inline-block;
 }
 
 nav {
   padding:1em;
-  padding-top:3em;
-  padding-left:2em;
+  padding-top:2.5em;
+  padding-left:1.5em;
   position:absolute;
   z-index: 3;
   left:0;
   top:0;
+}
+
+nav a:hover {
+  color:rgba(255, 255, 255, 0.5);
 }

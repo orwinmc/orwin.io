@@ -5,11 +5,13 @@ function Navigation() {
   return (
     <div className="Navigation">
       <nav>
-        <a href="/"> Michael Orwin </a>
-        <a href="/about"> About </a>
-        <a href="/portfolio"> Portfolio </a>
-        <a href="/research"> Research </a>
-        <a href="/contact"> Contact Me</a>
+        <ul>
+          <li><a href="/"> Michael Orwin </a></li>
+          <li><a href="/about"> About </a></li>
+          <li><a href="/portfolio"> Portfolio </a></li>
+          <li><a href="/research"> Research </a></li>
+          <li><a href="/contact"> Contact Me</a></li>
+        </ul>
       </nav>
     </div>
   );

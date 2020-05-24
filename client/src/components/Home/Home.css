@@ -1,25 +1,46 @@
 Home {
-  min-height:400px;
+  height:100%;
   width:100%;
   background-color: black;
-  overflow: hidden;
+  color:white;
+}
+
+.icons {
+  font-size: 2em;
+}
+
+#logos {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+#logos li {
+  display: inline-block;
+  padding:0.5em 2em;
+}
+
+a {
+  color:white;
 }
 
 #headline {
-  border: 1px white solid;
   position: absolute;
   left: 2em;
   top: 2em;
+  opacity: 0.4;
+  width: 700px;
 }
 
 #firstname {
-  font-size: 5.5em;
+  font-size: 6.5em;
   font-weight: 400;
   z-index:2;
   left: 5.5em;
   top: 2em;
-  padding-left: 1em;
+  //padding-left: 1em;
   text-align: center;
+  font-family: 'Pattaya', sans-serif;
 }
 
 #lastname {
@@ -28,8 +49,9 @@ Home {
   z-index:2;
   left: 5em;
   top: 3em;
-  padding-left: 3.5em;
+  padding-left: 10%;
   text-align: center;
+  font-family: 'Pattaya', sans-serif;
 }
 
 #position {

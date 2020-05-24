@@ -1,10 +1,10 @@
 import React from 'react';
-import './About.css';
+import './Portfolio.css';
 import Navigation from '../Navigation/Navigation';
 
-function About() {
+function Portfolio() {
   return (
-    <div className="About">
+    <div className="Portfolio">
       <Navigation />
       <br />
       <br />
@@ -20,4 +20,4 @@ function About() {
   );
 }
 
-export default About;
+export default Portfolio;

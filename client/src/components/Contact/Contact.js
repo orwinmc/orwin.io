@@ -1,10 +1,10 @@
 import React from 'react';
-import './About.css';
+import './Contact.css';
 import Navigation from '../Navigation/Navigation';
 
-function About() {
+function Contact() {
   return (
-    <div className="About">
+    <div className="Contact">
       <Navigation />
       <br />
       <br />
@@ -20,4 +20,4 @@ function About() {
   );
 }
 
-export default About;
+export default Contact;
