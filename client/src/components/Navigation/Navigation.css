@@ -1,0 +1,18 @@
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 300;
+  font-size: 1.1em;
+  padding-left:1em;
+  padding-right:1em;
+}
+
+nav {
+  padding:1em;
+  padding-top:3em;
+  padding-left:2em;
+  position:absolute;
+  z-index: 3;
+  left:0;
+  top:0;
+}

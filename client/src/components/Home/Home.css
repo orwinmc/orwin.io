@@ -1,0 +1,43 @@
+Home {
+  min-height:400px;
+  width:100%;
+  background-color: black;
+  overflow: hidden;
+}
+
+#headline {
+  border: 1px white solid;
+  position: absolute;
+  left: 2em;
+  top: 2em;
+}
+
+#firstname {
+  font-size: 5.5em;
+  font-weight: 400;
+  z-index:2;
+  left: 5.5em;
+  top: 2em;
+  padding-left: 1em;
+  text-align: center;
+}
+
+#lastname {
+  font-size: 5.5em;
+  font-weight: 400;
+  z-index:2;
+  left: 5em;
+  top: 3em;
+  padding-left: 3.5em;
+  text-align: center;
+}
+
+#position {
+  font-size: 2.5em;
+  font-weight: 300;
+  z-index:2;
+  left: 5em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
