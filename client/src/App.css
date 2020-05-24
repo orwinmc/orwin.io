@@ -2,6 +2,7 @@
   background: linear-gradient(145deg, rgba(33, 3, 120, 1),
                                       rgba(52, 3, 170, 1),
                                       rgba(20, 90, 255, 1));
+  //background-color: rgba(52, 3, 170, 1);
   color: white;
   font-family: 'Nunito', sans-serif;
   min-height: 100vh;
@@ -12,9 +13,10 @@ nav ul {
 }
 
 h1 {
-  font-size: 5em;
+  font-family: 'Pattaya', sans-serif;
+  font-size: 7em;
   margin:0;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 h2 {
