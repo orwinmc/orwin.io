@@ -11,6 +11,8 @@ function App() {
         <br />
         <br />
         <br />
+        <br />
+        <br />
         <h1>Michael Orwin</h1>
         <h2>Software Developer</h2>
         <br />
