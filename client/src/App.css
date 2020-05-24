@@ -4,9 +4,19 @@
   background: linear-gradient(145deg, rgba(33, 3, 120, 1),
                                       rgba(52, 3, 170, 1),
                                       rgba(20, 90, 255, 1));
+  //background-color: rgba(52, 3, 170, 1);
   color: white;
   font-family: 'Nunito', sans-serif;
   height: 100vh;
+  //animation: backgroundchange 20s infinite;
+}
+
+@keyframes backgroundchange {
+  0% {background-color: rgba(52, 3, 170, 1)}
+  25% {background-color: rgba(52, 3, 170, 1)}
+  50% {background-color: rgba(90, 3, 150, 1)}
+  75% {background-color: rgba(52, 3, 170, 1)}
+  100% {background-color: rgba(52, 3, 170, 1)}
 }
 
 h1 {
