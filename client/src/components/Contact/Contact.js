@@ -6,7 +6,7 @@ function Contact() {
     <div className="Contact">
       <center>
       <span className='title'> Contact Information </span><br />
-      <span className='subtitle'> Have any questions or just interested in talking? Fill out the form below! </span>
+      <span className='subtitle'> Have any questions or just interested in talking? Fill out the form below! (Not enabled) </span>
       </center>
       <br /><br />
       <div className='card'>
