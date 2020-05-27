@@ -1,65 +1,45 @@
 Home {
-  height:100%;
   width:100%;
-  background-color: black;
   color:white;
 }
 
-.icons {
-  font-size: 2em;
+#name {
+  margin:0;
+  margin-top:0.1em;
+  font-size: 5.5em;
+  font-weight: 400;
+  z-index:2;
+  left: 5.5em;
+  top: 2em;
+  font-family: 'Pattaya', sans-serif;
+  text-align: center;
+  color:white;
 }
 
-#logos {
+#position {
+  font-size: 2em;
+  font-weight: 300;
+  z-index:2;
+  left: 5em;
+  text-align: center;
+  color:white;
+}
+
+#socials {
+  margin-top: 3em;
+}
+
+#socials ul {
   padding: 0;
   list-style: none;
   text-align: center;
 }
 
-#logos li {
+#socials li {
   display: inline-block;
   padding:0.5em 2em;
 }
 
-a {
-  color:white;
-}
-
-#headline {
-  position: absolute;
-  left: 2em;
-  top: 2em;
-  opacity: 0.4;
-  width: 700px;
-}
-
-#firstname {
-  font-size: 6.5em;
-  font-weight: 400;
-  z-index:2;
-  left: 5.5em;
-  top: 2em;
-  //padding-left: 1em;
-  text-align: center;
-  font-family: 'Pattaya', sans-serif;
-}
-
-#lastname {
-  font-size: 5.5em;
-  font-weight: 400;
-  z-index:2;
-  left: 5em;
-  top: 3em;
-  padding-left: 10%;
-  text-align: center;
-  font-family: 'Pattaya', sans-serif;
-}
-
-#position {
-  font-size: 2.5em;
-  font-weight: 300;
-  z-index:2;
-  left: 5em;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+.icons {
+  font-size: 2em;
 }

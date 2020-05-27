@@ -1,20 +1,25 @@
 import React from 'react';
 import './Navigation.css';
 
-function Navigation() {
-  return (
-    <div className="Navigation">
-      <nav>
-        <ul>
-          <li><a href="/"> Michael Orwin </a></li>
-          <li><a href="/about"> About </a></li>
-          <li><a href="/portfolio"> Portfolio </a></li>
-          <li><a href="/research"> Research </a></li>
-          <li><a href="/contact"> Contact Me</a></li>
-        </ul>
-      </nav>
-    </div>
-  );
+class Navigation extends React.Component {
+  onClick(newPage) {
+    this.props.change(newPage);
+  }
+
+  render() {
+    return (
+      <div className="Navigation">
+        <nav>
+          <button onClick={() => this.onClick('home')}>Michael Orwin</button>
+          <button onClick={() => this.onClick('about')}> About</button>
+          <button onClick={() => this.onClick('portfolio')}> Portfolio</button>
+          <button onClick={() => this.onClick('research')}> Research</button>
+          <button onClick={() => this.onClick('blog')}> Blog</button>
+          <button onClick={() => this.onClick('contact')}> Contact Me</button>
+        </nav>
+      </div>
+    );
+  }
 }
 
 export default Navigation;

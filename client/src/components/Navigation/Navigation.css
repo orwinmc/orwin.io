@@ -1,34 +1,53 @@
-nav a {
+nav button {
+  background-color: rgba(0, 0, 0, 0);
   text-decoration: none;
-  color: white;
-  font-weight: 300;
-  font-size: 1.1em;
+  font-weight: 400;
 
-  display:block;
-  padding:0.5em 1.5em 0.5em 1.5em;
+  display:inline-block;
+  padding:0.5em 1em 0.5em 0em;
+  width:130px;
   position:relative;
 
   transition: all 0.5s;
 }
 
-nav ul {
-  list-style: none;
+nav button:focus {
+  outline:none;
 }
 
-nav li {
-  display:inline-block;
+.home nav button,
+.portfolio nav button,
+.research nav button {
+  color:white;
+}
+
+.about nav button,
+.blog nav button,
+.contact nav button {
+  color:black;
+}
+
+.home nav button:hover,
+.portfolio nav button:hover,
+.research nav button:hover {
+  color:rgba(255, 255, 255, 0.5);
+  cursor: pointer
+}
+
+.about nav button:hover,
+.blog nav button:hover {
+  color:rgba(0, 0, 0, 0.5);
+  cursor: pointer
+}
+
+.contact nav button:hover {
+  color:rgba(155, 100, 0, 0.5);
+  cursor: pointer
 }
 
 nav {
-  padding:1em;
-  padding-top:2.5em;
-  padding-left:1.5em;
-  position:absolute;
+  padding:2em 1em 1.5em 3.5em;
   z-index: 3;
   left:0;
   top:0;
-}
-
-nav a:hover {
-  color:rgba(255, 255, 255, 0.5);
 }

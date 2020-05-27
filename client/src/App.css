@@ -1,31 +1,65 @@
 .App {
-  background: linear-gradient(145deg, rgba(33, 3, 120, 1),
-                                      rgba(52, 3, 170, 1),
-                                      rgba(20, 90, 255, 1));
-  //background-color: rgba(52, 3, 170, 1);
-  color: white;
   font-family: 'Nunito', sans-serif;
   min-height: 100vh;
+  background-image: url('imgs/supernova.jpg');
+  background-size:cover;
+  font-size: 13pt;
 }
 
-nav ul {
-  margin: 0;
+.screen {
+  width:100%;
+  min-height:100vh;
+  transition: all 0.5s
 }
 
-h1 {
+.screen.home {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.screen.about, .screen.blog, .screen.contact {
+  background-color: white;
+}
+
+.screen.portfolio, .screen.research {
+  background-color: black;
+}
+
+
+
+
+
+a {
+  transition: all 0.5s;
+}
+
+.dark, .dark a {
+  color:white;
+}
+
+.dark a:hover {
+  color:rgba(255, 255, 255, 0.5);
+}
+
+.light, .light a {
+  color:black;
+}
+
+.light a:hover {
+  color:rgba(0, 0, 0, 0.5);
+}
+
+.pageHeading {
+  text-align: center;
+}
+
+.title {
   font-family: 'Pattaya', sans-serif;
-  font-size: 7em;
-  margin:0;
-  font-weight: 400;
+  font-size: 3.5em;
+  font-weight: 300;
 }
 
-h2 {
-  font-size: 2em;
-  margin:0;
-  font-weight: 400;
-}
-h4 {
-  font-size: 1em;
-  margin:0;
+.subtitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1em;
   font-weight: 300;
 }
