@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "i1:":"cd web",
+    "i2:":"npm install",
     "start": "watch 'npm run build' web/src & nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "cd web && npm install",
+    "install": "npm run i1 && npm run i2",
     "build": "cd web; npm run build"
   },
   "repository": {
