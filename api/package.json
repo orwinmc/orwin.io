@@ -1,0 +1,18 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "An a API for my personal website",
+  "main": "index.js",
+  "repository": "https://github.com/orwinmc/orwin.io/tree/master/api",
+  "author": "Michael Orwin",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "watch": "^1.0.2"
+  }
+}
