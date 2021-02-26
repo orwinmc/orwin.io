@@ -8,7 +8,7 @@
     "i2:":"npm install",
     "start": "watch 'npm run build' web/src & nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "npm run i1 && npm run i2",
+    "install": "npm run i1",
     "build": "cd web; npm run build"
   },
   "repository": {
