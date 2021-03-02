@@ -1,28 +1,14 @@
 {
   "name": "orwin.io",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "i1:":"cd web",
-    "i2:":"npm install",
-    "start": "watch 'npm run build' web/src & nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "npm run i1",
-    "build": "cd web; npm run build"
-  },
+  "description": "Personal website to showcase my work",
+  "author": "Michael Carter Orwin",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/orwinmc/orwin.io.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
-  },
   "devDependencies": {
-    "nodemon": "^2.0.7",
-    "watch": "^1.0.2"
+    "prettier": "^2.2.1"
   }
 }
