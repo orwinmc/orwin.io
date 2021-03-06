@@ -5,9 +5,9 @@ import styled from 'styled-components'
 
 const FooterContainer = styled.div`
     //border: 1px solid black;
-    font-family: 'Futura';
     padding: 1em;
     margin: 0.5em;
+    color: #000000;
 `
 
 function Footer() {

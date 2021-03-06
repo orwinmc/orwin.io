@@ -1,22 +1,47 @@
-import Document from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 class MyDocument extends Document {
-    static async getInitialProps(ctx) {
-        const originalRenderPage = ctx.renderPage
+  static async getInitialProps(ctx) {
+    const sheet = new ServerStyleSheet()
+    const originalRenderPage = ctx.renderPage
 
-        ctx.renderPage = () =>
-            originalRenderPage({
-                // useful for wrapping the whole react tree
-                enhanceApp: (App) => App,
-                // useful for wrapping in a per-page basis
-                enhanceComponent: (Component) => Component,
-            })
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        })
 
-        // Run the parent `getInitialProps`, it now includes the custom `renderPage`
-        const initialProps = await Document.getInitialProps(ctx)
-
-        return initialProps
+      const initialProps = await Document.getInitialProps(ctx)
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      }
+    } finally {
+      sheet.seal()
     }
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head>
+          <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;700&display=swap" rel="stylesheet" />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
 }
 
 export default MyDocument

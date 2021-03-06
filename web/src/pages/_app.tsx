@@ -1,32 +1,41 @@
 import { AppProps } from 'next/app'
-import React, { Fragment } from 'react'
+import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-    body {
-        font-family: 'Futura', sans-serif;
-        margin: 0;
+    html {
+        -webkit-text-size-adjust: 100%;
     }
 
-    @media (max-width: 799px) {
+    body {
+        font-family: 'Nunito', sans-serif;
+        margin: 0em;
+    }
+
+    @media (max-width: 1099px) {
         html {
             font-size: 12pt;
         }
     }
 
-    @media (min-width: 800px) {
+    @media (min-width: 1100px) {
         html {
             font-size: 14pt;
+        }
+    }
+    @media (min-width: 1600px) {
+        html {
+            font-size: 18pt;
         }
     }
 `
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <Fragment>
+        <>
             <GlobalStyles />
             <Component {...pageProps} />
-        </Fragment>
+        </>
     )
 }
 
