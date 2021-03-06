@@ -12,13 +12,17 @@ const NavLink = styled.a`
         opacity: 0.4;
     }
     transition: opacity 0.3s ease;
-    //color: #222222;
+    color: #000000;
+    //border: solid 1px black;
 `
 
 const NavigationContainer = styled.nav`
     //border: 1px solid black;
     white-space: nowrap;
     overflow-x: scroll;
+    &:first-child {
+        margin-left: 0;
+    }
 `
 
 function Navigation() {
@@ -36,8 +40,14 @@ function Navigation() {
             <Link href="/research">
                 <NavLink>Research</NavLink>
             </Link>
-            <Link href="/photography">
-                <NavLink>Photography</NavLink>
+            <Link href="/mathematics">
+                <NavLink>Mathematics</NavLink>
+            </Link>
+            <Link href="/photos">
+                <NavLink>Photos</NavLink>
+            </Link>
+            <Link href="/blog">
+                <NavLink>Blog</NavLink>
             </Link>
             <Link href="/contact">
                 <NavLink>Contact Me</NavLink>
