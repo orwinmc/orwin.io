@@ -27,10 +27,10 @@ function Photos() {
     const handleResize = () => {
         const newPhotos: Photos[] = []
 
-        //const containerWidth = window.innerWidth * (window.visualViewport?.scale || 1)
-        const containerWidth = window.innerWidth
+        const containerWidth = window.innerWidth * (window.visualViewport?.scale || 1)
+        //const containerWidth = window.innerWidth
         //const preferredAspectRatio = containerWidth / 200 // the denom is the minimum height of a row
-        const preferredAspectRatio = Math.sqrt(containerWidth) / 9
+        const preferredAspectRatio = Math.sqrt(containerWidth) / 8
 
         let photosInRow = 0
         let aspectRatioSubtotal = 0
