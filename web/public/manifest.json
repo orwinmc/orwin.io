@@ -3,8 +3,8 @@
   "short_name": "orwin.io",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "display": "fullscreen",
-  "orientation": "portrait",
+  "display": "standalone",
+  "orientation": "any",
   "scope": "/",
   "start_url": "/",
   "icons": [
