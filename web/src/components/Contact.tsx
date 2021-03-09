@@ -57,11 +57,9 @@ function Contact() {
             <InputText type="text"></InputText>
             <br />
             <br />
-            <br />
             Email Address:
             <br />
             <InputText type="text"></InputText>
-            <br />
             <br />
             <br />
             Message:
