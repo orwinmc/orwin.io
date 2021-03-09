@@ -30,7 +30,7 @@ function Photos() {
         const containerWidth = window.innerWidth * (window.visualViewport?.scale || 1)
         //const containerWidth = window.innerWidth
         //const preferredAspectRatio = containerWidth / 200 // the denom is the minimum height of a row
-        const preferredAspectRatio = Math.sqrt(containerWidth) / 8
+        const preferredAspectRatio = Math.sqrt(containerWidth) / 7
 
         let photosInRow = 0
         let aspectRatioSubtotal = 0
