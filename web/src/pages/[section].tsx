@@ -5,28 +5,32 @@ import Contact from '../components/Contact'
 import Photos from '../components/Photos'
 
 function Section() {
-    const router = useRouter()
-    const { section } = router.query
+	const router = useRouter()
+	const { section } = router.query
 
-    if (router.query.section === 'contact') {
-        return (
-            <Layout>
-                <Contact />
-            </Layout>
-        )
-    } else if (router.query.section === 'photos') {
-        return (
-            <Layout>
-                <Photos />
-            </Layout>
-        )
-    } else {
-        return (
-            <Layout>
-                <div />
-            </Layout>
-        )
-    }
+	switch (section) {
+		case 'contact': {
+			return (
+				<Layout>
+					<Contact />
+				</Layout>
+			)
+		}
+		case 'photos': {
+			return (
+				<Layout>
+					<Photos />
+				</Layout>
+			)
+		}
+		default: {
+			return (
+				<Layout>
+					<div />
+				</Layout>
+			)
+		}
+	}
 }
 
 export default Section
