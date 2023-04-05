@@ -3,17 +3,17 @@ import Footer from '../components/Footer'
 import Navigation from '../components/Navigation'
 
 interface LayoutProps {
-    children: ReactNode
+	children: ReactNode
 }
 
 function Layout({ children }: LayoutProps): ReactElement {
-    return (
-        <>
-            <Navigation />
-            {children}
-            <Footer />
-        </>
-    )
+	return (
+		<>
+			<Navigation />
+			{children}
+			<Footer />
+		</>
+	)
 }
 
 export default Layout
