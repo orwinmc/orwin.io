@@ -10,7 +10,7 @@ const $HeaderContainer = styled.div`
 		padding: max(env(safe-area-inset-bottom), 2em) max(env(safe-area-inset-right), 2em)
 			max(env(safe-area-inset-bottom), 2em) max(env(safe-area-inset-left), 2em);
 	}
-	color: rgb(255, 255, 255);
+	color: currentColor;
 	display: flex;
 	justify-content: center;
 	font-family: 'Exo', sans-serif;
@@ -19,7 +19,6 @@ const $HeaderContainer = styled.div`
 const $HeaderSectionContainer = styled.nav`
 	max-width: 1200px;
 	width: 100%;
-	color: rgb(255, 255, 255);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -32,13 +31,12 @@ const $NavLink = styled(Link)`
 	&:hover {
 		opacity: 0.4;
 	}
+	color: currentColor;
 	transition: opacity 0.3s ease;
-	color: white;
 	text-decoration: none;
 `
 
 const $Wordmark = styled(Link)`
-	color: rgba(255, 255, 255, 1);
 	text-decoration: none;
 	display: flex;
 	align-items: center;
@@ -46,12 +44,12 @@ const $Wordmark = styled(Link)`
 	left: 100px;
 	font-size: 1.5em;
 	font-weight: 700;
+	color: currentColor;
 `
 
 const $IconWrapper = styled.div`
 	width: 1em;
 	height: 1em;
-	color: rgba(255, 255, 255, 1);
 	display: flex;
 	justify-content: center;
 	align-items: center;

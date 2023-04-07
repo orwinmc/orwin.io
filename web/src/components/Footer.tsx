@@ -20,7 +20,7 @@ const $FooterContainer = styled.footer`
 		padding: max(env(safe-area-inset-bottom), 2em) max(env(safe-area-inset-right), 2em)
 			max(env(safe-area-inset-bottom), 2em) max(env(safe-area-inset-left), 2em);
 	}
-	color: rgb(255, 255, 255);
+	color: currentColor;
 	display: flex;
 	justify-content: center;
 `
@@ -28,7 +28,6 @@ const $FooterContainer = styled.footer`
 const $FooterSectionContainer = styled.div`
 	max-width: 1200px;
 	width: 100%;
-	color: rgb(255, 255, 255);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -36,7 +35,7 @@ const $FooterSectionContainer = styled.div`
 
 const $IconWrapper = styled.a`
 	height: 1em;
-	color: rgba(255, 255, 255, 1);
+	color: currentColor;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -70,7 +69,15 @@ function Footer({ style }: FooterProps) {
 	return (
 		<$FooterContainer style={style}>
 			<$FooterSectionContainer>
-				Copyright © 2023 Michael Orwin
+				Copyright © 2023
+				<div
+					style={{
+						marginLeft: '2em',
+						background: 'rgba(255, 255, 255, 0)',
+						height: '1px',
+						flex: 1,
+					}}
+				></div>
 				<$SocialLinks>
 					<$IconWrapper id="swimcloud" href="https://www.swimcloud.com/swimmer/522777/" target="_blank">
 						<Icon type="swimcloud" />
@@ -93,14 +100,5 @@ function Footer({ style }: FooterProps) {
 		</$FooterContainer>
 	)
 }
-
-/*
-<$IconWrapper id="logo" href="mailto:orwinmc@gmail.com">
-						<Icons type="logo" />
-					</$IconWrapper>
-					<$IconWrapper id="menu" href="mailto:orwinmc@gmail.com">
-						<Icons type="menu" />
-					</$IconWrapper>
-*/
 
 export default Footer

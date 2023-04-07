@@ -50,9 +50,9 @@ function Icon({ type }: IconProps): ReactElement {
 							<path
 								id="menu-line"
 								d="M22,40 L78,40 z"
-								stroke-linejoin="round"
+								strokeLinejoin="round"
 								stroke="currentColor"
-								stroke-width="8"
+								strokeWidth="8"
 							/>
 						</g>
 					</defs>
