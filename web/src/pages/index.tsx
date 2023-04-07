@@ -23,22 +23,23 @@ const $HeroText = styled.div``
 
 const $HeroIntroduction = styled.div`
 	font-family: 'Exo', sans-serif;
-	font-size: clamp(1.75em, 4vw, 2.75em);
+	font-size: clamp(1.75em, min(4vh, 4vw), 2.75em);
 	font-weight: 400;
 	@media (max-height: 400px) {
-		display: inline-block;
-		font-size: clamp(1.5em, 3vw, 2.75em);
+		//display: inline-block;
+		//font-weight: 200;
+		//font-size: clamp(0.9em, 2.25vw, 1.4em);
 	}
 `
 
 const $HeroPurpose = styled.div`
 	font-family: 'Exo', sans-serif;
 	font-weight: 200;
-	font-size: clamp(0.9em, 2.5vw, 1.4em);
+	font-size: clamp(0.9em, min(2.5vh, 2.5vw), 1.4em);
 	@media (max-height: 400px) {
-		display: inline-block;
-		margin-left: 0.5em;
-		font-size: clamp(0.9em, 2.25vw, 1.4em);
+		//display: inline-block;
+		//margin-left: 0.5em;
+		//font-size: clamp(0.9em, 2.25vw, 1.4em);
 	}
 `
 
@@ -46,6 +47,9 @@ const $Name = styled.span`
 	font-family: 'Exo', sans-serif;
 	font-weight: 700;
 	text-decoration: underline;
+	@media (max-height: 400px) {
+		//font-size: clamp(1em, 2.75vw, 2.75em);
+	}
 	//font-size: 1.35em;
 `
 
@@ -55,7 +59,7 @@ const $Hero = styled.div`
 	justify-content: center;
 	padding: 2em 0em;
 	@supports (padding: max(0px)) {
-		padding: 0 max(env(safe-area-inset-right), 2em) 0 max(env(safe-area-inset-left), 2em);
+		padding: 0 max(env(safe-area-inset-right) + 1em, 2em) 0 max(env(safe-area-inset-left) + 1em, 2em);
 	}
 `
 
@@ -76,6 +80,9 @@ const $BlurBackdrop = styled.div`
 
 const $TopBuffer = styled.div`
 	flex: 3;
+	@media (max-height: 400px) {
+		//flex: 1;
+	}
 `
 
 const $BottomBuffer = styled.div`
@@ -84,11 +91,11 @@ const $BottomBuffer = styled.div`
 
 const $UnderDevelopmentChip = styled.a`
 	display: inline-block;
-	margin-left: clamp(18em, 40vw, 22em);
+	margin-left: clamp(18em, min(20vh, 20vw), 25em);
 	background-color: rgb(0, 80, 180, 0.6);
 	border-radius: 40px;
 	padding: 0.25em 0.75em;
-	font-size: clamp(0.7em, 1.7vw, 1em);
+	font-size: clamp(0.7em, min(1.8vh, 1.8vw), 1.5em);
 	transform: rotate(-5deg);
 	&:hover {
 		transform: rotate(-10deg);
@@ -98,18 +105,7 @@ const $UnderDevelopmentChip = styled.a`
 	text-decoration: none;
 
 	@media (max-height: 400px) {
-		margin-left: clamp(35em, 60vw, 45em);
-	}
-`
-
-const $SVGLine = styled.svg`
-	& #line {
-		&:hover {
-			stroke: rgba(240, 150, 255, 0.75);
-			stroke-width: 24;
-			transform: translate(30px);
-		}
-		transition: stroke 200ms ease-out, stroke-width 200ms ease-out, transform 200ms ease-out;
+		//margin-left: clamp(35em, 60vw, 45em);
 	}
 `
 
@@ -211,6 +207,7 @@ function Home() {
 	return (
 		<>
 			<$Home>
+				<$PreventScroll />
 				<$PurpleCircleSVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
 					<circle cx="50" cy="50" r="50" />
 				</$PurpleCircleSVG>

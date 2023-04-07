@@ -17,8 +17,8 @@ import Icon from './Icons'
 const $FooterContainer = styled.footer`
 	padding: 2em;
 	@supports (padding: max(0px)) {
-		padding: max(env(safe-area-inset-bottom), 2em) max(env(safe-area-inset-right), 2em)
-			max(env(safe-area-inset-bottom), 2em) max(env(safe-area-inset-left), 2em);
+		padding: max(env(safe-area-inset-bottom) + 1em, 2em) max(env(safe-area-inset-right) + 1em, 2em)
+			max(env(safe-area-inset-bottom) + 1em, 2em) max(env(safe-area-inset-left) + 1em, 2em);
 	}
 	color: currentColor;
 	display: flex;
@@ -46,7 +46,7 @@ const $IconWrapper = styled.a`
 		transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 	transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
-	@media (max-width: 650px) {
+	@media (max-width: 600px) {
 		&#swimcloud,
 		&#github,
 		&#instagram,
@@ -81,6 +81,9 @@ function Footer({ style }: FooterProps) {
 				<$SocialLinks>
 					<$IconWrapper id="swimcloud" href="https://www.swimcloud.com/swimmer/522777/" target="_blank">
 						<Icon type="swimcloud" />
+					</$IconWrapper>
+					<$IconWrapper id="buymeacoffee" href="https://www.buymeacoffee.com/orwinmc" target="_blank">
+						<Icon type="buymeacoffee" />
 					</$IconWrapper>
 					<$IconWrapper id="github" href="https://github.com/orwinmc" target="_blank">
 						<FontAwesomeIcon icon={faGithub} />

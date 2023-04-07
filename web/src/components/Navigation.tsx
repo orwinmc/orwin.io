@@ -7,8 +7,8 @@ import Icon from './Icons'
 const $HeaderContainer = styled.div`
 	padding: 2em;
 	@supports (padding: max(0px)) {
-		padding: max(env(safe-area-inset-bottom), 2em) max(env(safe-area-inset-right), 2em)
-			max(env(safe-area-inset-bottom), 2em) max(env(safe-area-inset-left), 2em);
+		padding: max(env(safe-area-inset-bottom) + 1em, 2em) max(env(safe-area-inset-right) + 1em, 2em)
+			max(env(safe-area-inset-bottom) + 1em, 2em) max(env(safe-area-inset-left) + 1em, 2em);
 	}
 	color: currentColor;
 	display: flex;
