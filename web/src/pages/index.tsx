@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Footer from '../components/Footer'
 import Navigation from '../components/Navigation'
 import { createGlobalStyle } from 'styled-components'
@@ -8,9 +8,9 @@ import Icon from '../components/Icons'
 const $Home = styled.div`
 	display: flex;
 	flex-direction: column;
-	background: black;
 	overflow: hidden;
 	position: relative;
+	height: max(100svh, 100dvh);
 `
 
 const $PreventScroll = createGlobalStyle`
@@ -21,22 +21,32 @@ const $PreventScroll = createGlobalStyle`
 
 const $HeroText = styled.div``
 
-const $HeroIntroduction = styled.span`
+const $HeroIntroduction = styled.div`
 	font-family: 'Exo', sans-serif;
-	font-size: clamp(1.6em, 4vw, 2.4em);
-	font-weight: 200;
+	font-size: clamp(1.75em, 4vw, 2.75em);
+	font-weight: 400;
+	@media (max-height: 400px) {
+		display: inline-block;
+		font-size: clamp(1.5em, 3vw, 2.75em);
+	}
 `
 
-const $HeroPurpose = styled.span`
+const $HeroPurpose = styled.div`
 	font-family: 'Exo', sans-serif;
-	font-weight: 100;
-	font-size: clamp(1em, 2.5vw, 1.5em);
+	font-weight: 200;
+	font-size: clamp(0.9em, 2.5vw, 1.4em);
+	@media (max-height: 400px) {
+		display: inline-block;
+		margin-left: 0.5em;
+		font-size: clamp(0.9em, 2.25vw, 1.4em);
+	}
 `
 
 const $Name = styled.span`
 	font-family: 'Exo', sans-serif;
 	font-weight: 700;
 	text-decoration: underline;
+	//font-size: 1.35em;
 `
 
 const $Hero = styled.div`
@@ -57,11 +67,9 @@ const $HeroCenter = styled.div`
 `
 
 const $BlurBackdrop = styled.div`
-	background: rgba(0, 0, 0, 0.01);
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(120px);
 	-webkit-backdrop-filter: blur(120px);
-	z-index: 1;
-	height: -webkit-fill-available;
+	height: max(100svh, 100dvh);
 	display: flex;
 	flex-direction: column;
 `
@@ -77,7 +85,7 @@ const $BottomBuffer = styled.div`
 const $UnderDevelopmentChip = styled.a`
 	display: inline-block;
 	margin-left: clamp(18em, 40vw, 22em);
-	background-color: rgb(4, 80, 180, 0.5);
+	background-color: rgb(0, 80, 180, 0.6);
 	border-radius: 40px;
 	padding: 0.25em 0.75em;
 	font-size: clamp(0.7em, 1.7vw, 1em);
@@ -88,12 +96,16 @@ const $UnderDevelopmentChip = styled.a`
 	transition: transform 200ms ease-out;
 	color: white;
 	text-decoration: none;
+
+	@media (max-height: 400px) {
+		margin-left: clamp(35em, 60vw, 45em);
+	}
 `
 
 const $SVGLine = styled.svg`
 	& #line {
 		&:hover {
-			stroke: rgba(240, 180, 255, 0.4);
+			stroke: rgba(240, 150, 255, 0.75);
 			stroke-width: 24;
 			transform: translate(30px);
 		}
@@ -101,47 +113,116 @@ const $SVGLine = styled.svg`
 	}
 `
 
+const shiftPurple = keyframes`
+	0% {
+		transform: translate(5vw, 10vh) scale(0.5);
+	}
+	50% {
+		transform: translate(-35vw, -30vh) scale(2.5);
+	}
+	100% {
+		transform: translate(5vw, 10vh) scale(0.5);
+	}
+`
+
+const $PurpleCircleSVG = styled.svg`
+	width: min(100vh, 100vw);
+	height: min(100vh, 100vw);
+	fill: rgb(112, 20, 188);
+	position: absolute;
+	//transform: translate(100px, 250px);
+	animation: ${shiftPurple} 11s infinite;
+`
+
+const shiftYellow = keyframes`
+	0% {
+		transform: translate(0vw, -25vh) scale(0.95);
+	}
+	50% {
+		transform: translate(15vw, -15vh) scale(0.3);
+	}
+	100% {
+		transform: translate(0vw, -25vh) scale(0.9);
+	}
+`
+
+const $YellowCircleSVG = styled.svg`
+	width: min(100vh, 100vw);
+	height: min(100vh, 100vw);
+	fill: rgb(201, 193, 16);
+	position: absolute;
+	//transform: translate(100px, 250px);
+	animation: ${shiftYellow} 12s infinite;
+`
+
+const shiftPink = keyframes`
+	/* 0% {
+		transform: translate(1100px, 700px) scale(2.5);
+	}
+	50% {
+		transform: translate(1100px, 1000px) scale(0.5);
+	}
+	100% {
+		transform: translate(1100px, 700px) scale(2.5);
+	} */
+	0% {
+		transform: translate(80vw, 100vh) scale(1);
+	}
+	50% {
+		transform: translate(55vw, 50vh) scale(1.5);
+	}
+	100% {
+		transform: translate(80vw, 100vh) scale(1);
+	}
+`
+
+const $PinkCircleSVG = styled.svg`
+	width: min(100vh, 100vw);
+	height: min(100vh, 100vw);
+	fill: rgb(238, 70, 154);
+	position: absolute;
+	animation: ${shiftPink} 13s infinite;
+`
+
+const shiftBlue = keyframes`
+	0% {
+		transform: translate(25vw, 25vh) scale(0.3);
+	}
+	50% {
+		transform: translate(60vw, -50vh) scale(1);
+	}
+	100% {
+		transform: translate(25vw, 25vh) scale(0.3);
+	}
+`
+
+const $BlueCircleSVG = styled.svg`
+	width: min(100vh, 100vw);
+	height: min(100vh, 100vw);
+	fill: rgb(11, 140, 215);
+	position: absolute;
+	//transform: translate(100px, 250px);
+	animation: ${shiftBlue} 9s infinite;
+`
+
+// <$PreventScroll />
+
 function Home() {
 	return (
 		<>
-			<$PreventScroll />
 			<$Home>
-				<svg
-					style={{
-						width: '1500',
-						height: '1500',
-						position: 'absolute',
-						fill: 'purple',
-						alignmentBaseline: 'middle',
-						zIndex: 1,
-					}}
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 100 100"
-				>
-					<defs>
-						<g id="logo-square">
-							<polygon points="0,0 20,0 20,20 0,20" />
-						</g>
-					</defs>
-					<use
-						href="#logo-square"
-						fill="rgb(201, 193, 16)"
-						transform="translate(35,15) rotate(50)"
-						transform-origin="10 10"
-					/>
-					<use
-						href="#logo-square"
-						fill="rgb(232, 122, 188)"
-						transform="translate(40,45) rotate(10)"
-						transform-origin="10 10"
-					/>
-					<use
-						href="#logo-square"
-						fill="rgb(122, 56, 188)"
-						transform="translate(5,15) rotate(80)"
-						transform-origin="10 10"
-					/>
-				</svg>
+				<$PurpleCircleSVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+					<circle cx="50" cy="50" r="50" />
+				</$PurpleCircleSVG>
+				<$YellowCircleSVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+					<circle cx="50" cy="50" r="50" />
+				</$YellowCircleSVG>
+				<$PinkCircleSVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+					<circle cx="50" cy="50" r="50" />
+				</$PinkCircleSVG>
+				<$BlueCircleSVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+					<circle cx="50" cy="50" r="50" />
+				</$BlueCircleSVG>
 				<$BlurBackdrop>
 					<Navigation />
 					<$Hero>
@@ -151,9 +232,7 @@ function Home() {
 								<$HeroIntroduction>
 									Hi, I'm <$Name>Michael Orwin</$Name>
 								</$HeroIntroduction>
-								<br />
 								<$HeroPurpose>and welcome to my personal portfolio</$HeroPurpose>
-								<br />
 								<$UnderDevelopmentChip href="https://github.com/orwinmc/orwin.io" target="_blank">
 									Under Development
 								</$UnderDevelopmentChip>

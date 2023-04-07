@@ -11,8 +11,10 @@ const GlobalStyles = createGlobalStyle`
 	body {
 		font-family: 'Nunito', sans-serif;
 		margin: 0em;
-		color: white;
-		background-color: black;
+		color: rgb(255, 255, 255);
+        //color:black;
+		background: rgb(5, 168, 124);
+        //background:white;
 	}
 
 	@media (max-width: 1099px) {
