@@ -4,6 +4,10 @@ import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
+	* {
+		box-sizing:border-box;
+	}
+	
 	html {
 		-webkit-text-size-adjust: 100%;
 	}
@@ -12,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
 		font-family: 'Nunito', sans-serif;
 		margin: 0em;
 		color: rgb(255, 255, 255);
-        //color:black;
+        //color:rgba(0,0,100,1);
 		background: rgb(5, 168, 124);
         //background:white;
 	}

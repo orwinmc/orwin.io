@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react'
 import Footer from '../components/Footer'
-import Navigation from '../components/Navigation'
+import Header from './Header'
 
 interface LayoutProps {
 	children: ReactNode
@@ -9,7 +9,7 @@ interface LayoutProps {
 function Layout({ children }: LayoutProps): ReactElement {
 	return (
 		<>
-			<Navigation />
+			<Header />
 			{children}
 			<Footer />
 		</>
