@@ -21,16 +21,45 @@ const Subtitle = styled.h2`
 	font-weight: normal;
 `
 
+const Image = styled.img`
+	display: block;
+
+	transition: transform 200ms, outline 200ms;
+	z-index: 0;
+	//padding: 2px;
+	&:hover {
+		cursor: pointer;
+		//padding: clamp(2px, 0.6%, 6px);
+		background: rgb(255, 255, 255);
+		box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.8);
+		transform: scale(1.05);
+		z-index: 1;
+		//position: relative;
+		//border: 10px solid rgba(255, 255, 255, 1);
+		outline: 4px solid white;
+	}
+
+	@media (max-width: 650px) {
+		padding: 1px;
+		&:hover {
+			outline: 1px solid white;
+		}
+	}
+
+	//object-fit: none;
+`
+
 function Photos() {
 	const [photos, setPhotos] = useState<Photos[]>([])
 
 	const handleResize = () => {
 		const newPhotos: Photos[] = []
 
-		const containerWidth = window.innerWidth * (window.visualViewport?.scale || 1)
+		const containerWidth = window.innerWidth * (window.visualViewport?.scale || 1) - 35
+		//console.log(containerWidth)
 		//const containerWidth = window.innerWidth
 		//const preferredAspectRatio = containerWidth / 200 // the denom is the minimum height of a row
-		const preferredAspectRatio = Math.sqrt(containerWidth) / 6
+		const preferredAspectRatio = containerWidth / 300
 
 		let photosInRow = 0
 		let aspectRatioSubtotal = 0
@@ -41,6 +70,7 @@ function Photos() {
 				photosInRow++
 				aspectRatioSubtotal += image.width / image.height
 			} else {
+				console.log(photosInRow)
 				for (let j = 0; j < photosInRow; j++) {
 					newPhotos.push({
 						id: images[i - photosInRow + j].id,
@@ -80,9 +110,9 @@ function Photos() {
 	}, [])
 
 	return (
-		<div style={{ maxWidth: '100%', margin: '0 0' }}>
+		<div style={{ maxWidth: '100%', margin: '0 0', overflowX: 'hidden' }}>
 			<BodyContainer>
-				<Title>Photos</Title>
+				<Title>Photography</Title>
 				<Subtitle>
 					Below are some of my favorite photos over the last few years. The layout was made with inspiration
 					from Google Photos
@@ -95,16 +125,12 @@ function Photos() {
 					flexWrap: 'wrap',
 					width: '100%',
 					alignItems: 'flex-start',
+					//margin: '0 auto',
 				}}
 			>
 				{photos.map((photo) => {
 					return (
-						<img
-							style={{
-								display: 'block',
-								boxSizing: 'border-box',
-								padding: '2px',
-							}}
+						<Image
 							key={photo.id}
 							src={photo.src}
 							alt={photo.alt}
