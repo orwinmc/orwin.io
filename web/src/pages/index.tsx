@@ -34,8 +34,16 @@ const $Hero = styled.main`
 		padding: 0 max(env(safe-area-inset-right) + 1em, 2em) 0 max(env(safe-area-inset-left) + 1em, 2em);
 	}
 
-	position: relative;
-	z-index: 2;
+	/* Positions the Hero Contents Proportionally on the Page */
+	&:before {
+		content: '';
+		flex: 3;
+	}
+
+	&:after {
+		content: '';
+		flex: 1;
+	}
 `
 
 const $HeroIntroduction = styled.h1`
@@ -52,9 +60,11 @@ const $HeroPurpose = styled.h2`
 	font-size: clamp(0.9em, min(3.5vh, 3.5vw), 1.2em);
 `
 
-const $Name = styled.span`
+const $Name = styled.mark`
 	font-weight: 700;
 	text-decoration: underline;
+	background: none;
+	color: currentColor;
 `
 
 /* Layer to Blur the Moving Colors */
@@ -64,8 +74,7 @@ const $Name = styled.span`
 const $BlurLayer = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 100%;
-	height: max(100svh, 100dvh);
+	height: 100%;
 
 	backdrop-filter: blur(120px); // Firefox renders blurs poorly
 
@@ -73,19 +82,6 @@ const $BlurLayer = styled.div`
 	@media (prefers-contrast: more) {
 		backdrop-filter: blur(120px) contrast(300); // contrast() function behaves strangely in
 		background: rgba(0, 0, 0, 0.7); // Instead of brightness() function -> broken in Safari
-	}
-
-	z-index: 1;
-`
-
-/* Positions the Hero Contents Proportionally on the Page */
-const $Buffer = styled.div`
-	&#topBuffer {
-		flex: 3;
-	}
-
-	&#bottomBuffer {
-		flex: 1;
 	}
 `
 
@@ -96,6 +92,7 @@ const $UnderDevelopmentChip = styled.a`
 	margin-left: clamp(18em, min(20vh, 20vw), 25em);
 
 	background-color: rgba(0, 80, 180, 0.6);
+	width: fit-content;
 	border-radius: 40px;
 	font-size: clamp(0.7em, min(2.5vh, 2.5vw), 1em);
 	color: white;
@@ -115,7 +112,7 @@ const $UnderDevelopmentChip = styled.a`
 	}
 `
 
-const shiftPurple = keyframes`
+const shiftPurpleBlob = keyframes`
 	0% {
 		transform: translate(5vw, 10vh) scale(0.5);
 	}
@@ -127,7 +124,7 @@ const shiftPurple = keyframes`
 	}
 `
 
-const shiftYellow = keyframes`
+const shiftYellowBlob = keyframes`
 	0% {
 		transform: translate(0vw, -25vh) scale(0.95);
 	}
@@ -135,11 +132,11 @@ const shiftYellow = keyframes`
 		transform: translate(15vw, -15vh) scale(0.3);
 	}
 	100% {
-		transform: translate(0vw, -25vh) scale(0.9);
+		transform: translate(0vw, -25vh) scale(0.95);
 	}
 `
 
-const shiftPink = keyframes`
+const shiftPinkBlob = keyframes`
 	0% {
 		transform: translate(80vw, 100vh) scale(1);
 	}
@@ -151,7 +148,7 @@ const shiftPink = keyframes`
 	}
 `
 
-const shiftBlue = keyframes`
+const shiftBlueBlob = keyframes`
 	0% {
 		transform: translate(25vw, 25vh) scale(0.3);
 	}
@@ -163,33 +160,34 @@ const shiftBlue = keyframes`
 	}
 `
 
-const $CircleSVG = styled.svg`
+const $ColorBlob = styled.div`
 	width: min(100vh, 100vw);
 	height: min(100vh, 100vw);
 	position: absolute;
+	border-radius: 50%;
 
-	&#purpleSVG {
-		fill: rgb(112, 20, 188);
-		//fill: rgb(206, 160, 243);
-		animation: ${shiftPurple} 11s infinite;
+	&#purpleBlob {
+		background: rgb(112, 20, 188);
+		// fill: rgb(206, 160, 243);
+		animation: ${shiftPurpleBlob} 11s infinite;
 	}
 
-	&#yellowSVG {
-		fill: rgb(201, 193, 16);
+	&#yellowBlob {
+		background: rgb(201, 193, 16);
 		//fill: rgb(241, 236, 149);
-		animation: ${shiftYellow} 12s infinite;
+		animation: ${shiftYellowBlob} 12s infinite;
 	}
 
-	&#pinkSVG {
-		fill: rgb(238, 70, 154);
+	&#pinkBlob {
+		background: rgb(238, 70, 154);
 		//fill: rgb(241, 162, 202);
-		animation: ${shiftPink} 13s infinite;
+		animation: ${shiftPinkBlob} 13s infinite;
 	}
 
-	&#blueSVG {
-		fill: rgb(11, 140, 215);
+	&#blueBlob {
+		background: rgb(11, 140, 215);
 		//fill: rgb(152, 206, 237);
-		animation: ${shiftBlue} 9s infinite;
+		animation: ${shiftBlueBlob} 9s infinite;
 	}
 `
 
@@ -197,34 +195,22 @@ function Home() {
 	return (
 		<$Home>
 			<$PreventScroll />
-			<$CircleSVG id="purpleSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-				<circle cx="50" cy="50" r="50" />
-			</$CircleSVG>
-			<$CircleSVG id="yellowSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-				<circle cx="50" cy="50" r="50" />
-			</$CircleSVG>
-			<$CircleSVG id="pinkSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-				<circle cx="50" cy="50" r="50" />
-			</$CircleSVG>
-			<$CircleSVG id="blueSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-				<circle cx="50" cy="50" r="50" />
-			</$CircleSVG>
+			<$ColorBlob id="purpleBlob" />
+			<$ColorBlob id="yellowBlob" />
+			<$ColorBlob id="pinkBlob" />
+			<$ColorBlob id="blueBlob" />
 			<$BlurLayer>
-				<Header style={{ position: 'relative', zIndex: 3 }} />
+				<Header />
 				<$Hero>
-					<$Buffer id="topBuffer" />
-					<div>
-						<$HeroIntroduction>
-							Hi, I'm <$Name>Michael Orwin</$Name>
-						</$HeroIntroduction>
-						<$HeroPurpose>and welcome to my personal portfolio</$HeroPurpose>
-						<$UnderDevelopmentChip href="https://github.com/orwinmc/orwin.io" target="_blank">
-							Under Development
-						</$UnderDevelopmentChip>
-					</div>
-					<$Buffer id="bottomBuffer" />
+					<$HeroIntroduction>
+						Hi, I'm <$Name>Michael Orwin</$Name>
+					</$HeroIntroduction>
+					<$HeroPurpose>and welcome to my personal portfolio</$HeroPurpose>
+					<$UnderDevelopmentChip href="https://github.com/orwinmc/orwin.io" target="_blank">
+						Under Development
+					</$UnderDevelopmentChip>
 				</$Hero>
-				<Footer style={{ position: 'relative', zIndex: 3 }} />
+				<Footer />
 			</$BlurLayer>
 		</$Home>
 	)
