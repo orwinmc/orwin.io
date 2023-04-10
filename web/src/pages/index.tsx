@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { keyframes, createGlobalStyle } from 'styled-components'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Layout from '../components/Layout'
 
 /* Main Container for the Entire Page */
 const $Home = styled.div`
@@ -11,6 +12,8 @@ const $Home = styled.div`
 	/* Eliminates scrollbars in Firefox, attempting to rendering SVG's outside of viewport */
 	position: relative;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
 `
 
 const $PreventScroll = createGlobalStyle`
@@ -72,17 +75,21 @@ const $Name = styled.mark`
    updating width and height on resize Instead it is now just wrapping the contents of
    the page. */
 const $BlurLayer = styled.div`
-	display: flex;
-	flex-direction: column;
 	height: 100%;
 
+	filter: blur(0px);
 	backdrop-filter: blur(120px); // Firefox renders blurs poorly
-
 	/* High Contrast Theme Adjustments */
 	@media (prefers-contrast: more) {
 		backdrop-filter: blur(120px) contrast(300); // contrast() function behaves strangely in
 		background: rgba(0, 0, 0, 0.7); // Instead of brightness() function -> broken in Safari
 	}
+
+	transition: background 400ms;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
 `
 
 const $UnderDevelopmentChip = styled.a`
@@ -169,6 +176,7 @@ const $ColorBlob = styled.div`
 	height: min(100vh, 100vw);
 	position: absolute;
 	border-radius: 50%;
+	z-index: -1;
 
 	&#purpleBlob {
 		background: rgb(112, 20, 188);
@@ -211,6 +219,15 @@ const $ColorBlob = styled.div`
 	}
 `
 
+const $Menu = styled.div`
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	//background: rgba(0, 255, 100, 0.3);
+	//backdrop-filter: blur(120px) contrast(0);
+	//filter: blur(0);
+`
+
 function Home() {
 	return (
 		<$Home>
@@ -219,8 +236,9 @@ function Home() {
 			<$ColorBlob id="yellowBlob" />
 			<$ColorBlob id="pinkBlob" />
 			<$ColorBlob id="blueBlob" />
-			<$BlurLayer>
-				<Header />
+			<$Menu>asdfasdf</$Menu>
+			<$BlurLayer />
+			<Layout>
 				<$Hero>
 					<$HeroIntroduction>
 						Hi, I'm <$Name>Michael Orwin</$Name>
@@ -230,8 +248,7 @@ function Home() {
 						Under Development
 					</$UnderDevelopmentChip>
 				</$Hero>
-				<Footer />
-			</$BlurLayer>
+			</Layout>
 		</$Home>
 	)
 }
