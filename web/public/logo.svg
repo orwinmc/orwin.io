@@ -1,0 +1,17 @@
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	viewBox="6 9 85 85"
+>
+	<defs>
+		<g id="logo-triangle">
+			<polygon points="16,16 16,0 0,16" />
+		</g>
+		<g id="logo-square">
+			<polygon points="0,0 20,0 20,20 0,20" />
+		</g>
+	</defs>
+	<use href="#logo-triangle" transform="translate(15,59)" />
+	<use href="#logo-square" transform="translate(35,55)" transform-origin="10 10" />
+	<use href="#logo-square" transform="translate(35,30) rotate(-20)" transform-origin="10 10" />
+	<use href="#logo-square" transform="translate(60,45) rotate(10)" transform-origin="10 10" />
+</svg>

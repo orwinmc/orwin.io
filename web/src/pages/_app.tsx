@@ -19,6 +19,10 @@ const GlobalStyles = createGlobalStyle`
         //color:rgba(0,0,100,1);
 		background: rgb(5, 168, 124);
         //background:white;
+
+		@media (prefers-color-scheme: dark) {
+			background: rgb(0,0,0);
+		}
 	}
 
 	@media (max-width: 1099px) {

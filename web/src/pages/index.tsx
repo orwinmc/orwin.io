@@ -110,6 +110,10 @@ const $UnderDevelopmentChip = styled.a`
 		background-color: rgb(0, 60, 60, 0.6);
 		border: 1px solid white;
 	}
+
+	@media (prefers-color-scheme: dark) {
+		background: rgba(39, 121, 221, 0.6);
+	}
 `
 
 const shiftPurpleBlob = keyframes`
@@ -170,24 +174,40 @@ const $ColorBlob = styled.div`
 		background: rgb(112, 20, 188);
 		// fill: rgb(206, 160, 243);
 		animation: ${shiftPurpleBlob} 11s infinite;
+
+		@media (prefers-color-scheme: dark) {
+			background: rgb(67, 9, 80);
+		}
 	}
 
 	&#yellowBlob {
 		background: rgb(201, 193, 16);
 		//fill: rgb(241, 236, 149);
 		animation: ${shiftYellowBlob} 12s infinite;
+
+		@media (prefers-color-scheme: dark) {
+			background: rgb(59, 81, 6);
+		}
 	}
 
 	&#pinkBlob {
 		background: rgb(238, 70, 154);
 		//fill: rgb(241, 162, 202);
 		animation: ${shiftPinkBlob} 13s infinite;
+
+		@media (prefers-color-scheme: dark) {
+			background: rgb(80, 23, 34);
+		}
 	}
 
 	&#blueBlob {
 		background: rgb(11, 140, 215);
 		//fill: rgb(152, 206, 237);
 		animation: ${shiftBlueBlob} 9s infinite;
+
+		@media (prefers-color-scheme: dark) {
+			background: rgb(4, 18, 78);
+		}
 	}
 `
 
