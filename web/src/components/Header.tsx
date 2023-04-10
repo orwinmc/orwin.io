@@ -1,10 +1,10 @@
 import React, { CSSProperties } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Link from 'next/link'
 import Icon, { Icons } from './Icons'
 
 /* Outermost Container for Header */
-const $Header = styled.header`
+const $Header = styled('header')<{ isMenuOpen: boolean }>`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -20,6 +20,19 @@ const $Header = styled.header`
 		padding: max(env(safe-area-inset-bottom) + 1em, 2em) max(env(safe-area-inset-right) + 1em, 2em)
 			max(env(safe-area-inset-bottom) + 1em, 2em) max(env(safe-area-inset-left) + 1em, 2em);
 	}
+
+	transition: color 400ms;
+	${(props) =>
+		props.isMenuOpen &&
+		css`
+			color: rgb(0, 0, 0);
+
+			@media (prefers-color-scheme: dark) {
+				color: rgba(255, 255, 255);
+			}
+		`}
+
+	z-index:1;
 `
 
 const $Wordmark = styled(Link)`
@@ -38,7 +51,7 @@ const $Navigation = styled.nav`
 	text-transform: uppercase;
 `
 
-const $NavLink = styled(Link)`
+const $NavLink = styled(Link)<{ isMenuOpen: boolean }>`
 	display: inline-block;
 	margin-left: 2em;
 
@@ -53,6 +66,12 @@ const $NavLink = styled(Link)`
 	@media (max-width: 649px) {
 		display: none;
 	}
+
+	${(props) =>
+		props.isMenuOpen &&
+		css`
+			display: none;
+		`}
 `
 
 const $LogoWrapper = styled.div`
@@ -71,7 +90,7 @@ const $LogoWrapper = styled.div`
 	}
 `
 
-const $MenuButton = styled.button`
+const $MenuButton = styled('button')<{ isMenuOpen: boolean }>`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -85,9 +104,15 @@ const $MenuButton = styled.button`
 	color: currentColor;
 	font-size: 2em;
 
-	@media (min-width: 650px) {
-		display: none;
-	}
+	${(props) =>
+		!props.isMenuOpen &&
+		css`
+			@media (min-width: 650px) {
+				display: none;
+			}
+		`}
+
+	cursor: pointer;
 `
 
 const $LogoType = styled.span`
@@ -96,11 +121,13 @@ const $LogoType = styled.span`
 
 interface HeaderProps {
 	style?: CSSProperties
+	isMenuOpen: boolean
+	toggleMenu: () => void
 }
 
-function Header({ style }: HeaderProps) {
+function Header({ style, isMenuOpen, toggleMenu }: HeaderProps) {
 	return (
-		<$Header style={style}>
+		<$Header style={style} isMenuOpen={isMenuOpen}>
 			<$Wordmark href="/">
 				<$LogoWrapper>
 					<Icon icon={Icons.LOGO} />
@@ -108,10 +135,16 @@ function Header({ style }: HeaderProps) {
 				<$LogoType>Orwin.IO</$LogoType>
 			</$Wordmark>
 			<$Navigation>
-				<$NavLink href="/about">About</$NavLink>
-				<$NavLink href="/development">Portfolio</$NavLink>
-				<$NavLink href="/photos">Photography</$NavLink>
-				<$MenuButton id="menu">
+				<$NavLink href="/about" isMenuOpen={isMenuOpen}>
+					About
+				</$NavLink>
+				<$NavLink href="/development" isMenuOpen={isMenuOpen}>
+					Portfolio
+				</$NavLink>
+				<$NavLink href="/photos" isMenuOpen={isMenuOpen}>
+					Photography
+				</$NavLink>
+				<$MenuButton id="menu" onClick={() => toggleMenu()} isMenuOpen={isMenuOpen}>
 					<Icon icon={Icons.MENU} />
 				</$MenuButton>
 			</$Navigation>

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { CSSProperties } from 'styled-components'
+import styled, { CSSProperties, css } from 'styled-components'
 
 /* Icon Imports */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,7 +8,7 @@ import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-
 import Icon, { Icons } from './Icons'
 
 /* Outermost Container for Footer */
-const $Footer = styled.footer`
+const $Footer = styled('footer')<{ isMenuOpen: boolean }>`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -23,6 +23,19 @@ const $Footer = styled.footer`
 		padding: max(env(safe-area-inset-bottom) + 1em, 2em) max(env(safe-area-inset-right) + 1em, 2em)
 			max(env(safe-area-inset-bottom) + 1em, 2em) max(env(safe-area-inset-left) + 1em, 2em);
 	}
+
+	transition: color 400ms;
+	${(props) =>
+		props.isMenuOpen &&
+		css`
+			color: rgb(0, 0, 0);
+
+			@media (prefers-color-scheme: dark) {
+				color: rgba(255, 255, 255);
+			}
+		`}
+
+	z-index:1;
 `
 
 const $SocialLink = styled.a`
@@ -71,11 +84,12 @@ const $Socials = styled.div`
 
 interface FooterProps {
 	style?: CSSProperties
+	isMenuOpen: boolean
 }
 
-function Footer({ style }: FooterProps) {
+function Footer({ style, isMenuOpen }: FooterProps) {
 	return (
-		<$Footer style={style}>
+		<$Footer style={style} isMenuOpen={isMenuOpen}>
 			Copyright © 2023
 			<$Socials>
 				<$SocialLink id="swimCloudLink" href="https://www.swimcloud.com/swimmer/522777/" target="_blank">

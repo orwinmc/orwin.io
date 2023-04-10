@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { keyframes, createGlobalStyle } from 'styled-components'
+import styled, { keyframes, createGlobalStyle, css } from 'styled-components'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Layout from '../components/Layout'
@@ -92,7 +92,7 @@ const $BlurLayer = styled.div`
 	z-index: -1;
 `
 
-const $UnderDevelopmentChip = styled.a`
+const $UnderDevelopmentChip = styled.a<{ isMenuOpen: boolean }>`
 	display: inline-block;
 
 	padding: 0.25em 0.75em;
@@ -176,7 +176,7 @@ const $ColorBlob = styled.div`
 	height: min(100vh, 100vw);
 	position: absolute;
 	border-radius: 50%;
-	z-index: -1;
+	z-index: -2;
 
 	&#purpleBlob {
 		background: rgb(112, 20, 188);
@@ -219,15 +219,6 @@ const $ColorBlob = styled.div`
 	}
 `
 
-const $Menu = styled.div`
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	//background: rgba(0, 255, 100, 0.3);
-	//backdrop-filter: blur(120px) contrast(0);
-	//filter: blur(0);
-`
-
 function Home() {
 	return (
 		<$Home>
@@ -236,7 +227,6 @@ function Home() {
 			<$ColorBlob id="yellowBlob" />
 			<$ColorBlob id="pinkBlob" />
 			<$ColorBlob id="blueBlob" />
-			<$Menu>asdfasdf</$Menu>
 			<$BlurLayer />
 			<Layout>
 				<$Hero>
