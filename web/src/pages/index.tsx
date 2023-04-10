@@ -92,7 +92,7 @@ const $BlurLayer = styled.div`
 	z-index: -1;
 `
 
-const $UnderDevelopmentChip = styled.a<{ isMenuOpen: boolean }>`
+const $UnderDevelopmentChip = styled.a`
 	display: inline-block;
 
 	padding: 0.25em 0.75em;
