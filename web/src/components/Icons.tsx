@@ -1,12 +1,19 @@
 import React, { ReactElement } from 'react'
 
 interface IconProps {
-	type: string
+	icon: string
 }
 
-function Icon({ type }: IconProps): ReactElement {
-	switch (type) {
-		case 'logo': {
+export const Icons = {
+	BUY_ME_A_COFFEE: 'buyMeACoffee',
+	SWIM_CLOUD: 'swimCloud',
+	MENU: 'menu',
+	LOGO: 'logo',
+}
+
+export function Icon({ icon }: IconProps): ReactElement {
+	switch (icon) {
+		case Icons.LOGO: {
 			return (
 				<svg
 					style={{
@@ -33,7 +40,7 @@ function Icon({ type }: IconProps): ReactElement {
 				</svg>
 			)
 		}
-		case 'menu':
+		case Icons.MENU:
 			return (
 				<svg
 					style={{
@@ -60,7 +67,7 @@ function Icon({ type }: IconProps): ReactElement {
 					<use href="#menu-line" transform="translate(0, 25)" />
 				</svg>
 			)
-		case 'swimcloud':
+		case Icons.SWIM_CLOUD:
 			return (
 				<svg
 					style={{
@@ -77,7 +84,7 @@ function Icon({ type }: IconProps): ReactElement {
 					</g>
 				</svg>
 			)
-		case 'buymeacoffee':
+		case Icons.BUY_ME_A_COFFEE:
 			return (
 				<svg
 					style={{
