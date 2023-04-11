@@ -9,7 +9,6 @@ interface LayoutProps {
 
 function Layout({ children }: LayoutProps): ReactElement {
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
-	console.log(isMenuOpen)
 
 	return (
 		<>

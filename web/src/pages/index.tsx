@@ -1,7 +1,5 @@
 import React from 'react'
 import styled, { keyframes, createGlobalStyle, css } from 'styled-components'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
 import Layout from '../components/Layout'
 
 /* Main Container for the Entire Page */
@@ -184,7 +182,7 @@ const $ColorBlob = styled.div`
 		animation: ${shiftPurpleBlob} 11s infinite;
 
 		@media (prefers-color-scheme: dark) {
-			background: rgb(67, 9, 80);
+			background: rgb(90, 12, 107);
 		}
 	}
 
@@ -194,7 +192,7 @@ const $ColorBlob = styled.div`
 		animation: ${shiftYellowBlob} 12s infinite;
 
 		@media (prefers-color-scheme: dark) {
-			background: rgb(59, 81, 6);
+			background: rgb(80, 111, 8);
 		}
 	}
 
@@ -204,7 +202,7 @@ const $ColorBlob = styled.div`
 		animation: ${shiftPinkBlob} 13s infinite;
 
 		@media (prefers-color-scheme: dark) {
-			background: rgb(80, 23, 34);
+			background: rgb(105, 30, 45);
 		}
 	}
 
@@ -214,7 +212,7 @@ const $ColorBlob = styled.div`
 		animation: ${shiftBlueBlob} 9s infinite;
 
 		@media (prefers-color-scheme: dark) {
-			background: rgb(4, 18, 78);
+			background: rgb(5, 24, 106);
 		}
 	}
 `
