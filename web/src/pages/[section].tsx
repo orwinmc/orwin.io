@@ -19,7 +19,7 @@ function Section() {
 		case 'photos': {
 			return (
 				<Layout>
-					<Photos />
+					<div />
 				</Layout>
 			)
 		}

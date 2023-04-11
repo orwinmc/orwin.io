@@ -70,7 +70,6 @@ function Photos() {
 				photosInRow++
 				aspectRatioSubtotal += image.width / image.height
 			} else {
-				console.log(photosInRow)
 				for (let j = 0; j < photosInRow; j++) {
 					newPhotos.push({
 						id: images[i - photosInRow + j].id,
@@ -110,7 +109,7 @@ function Photos() {
 	}, [])
 
 	return (
-		<div style={{ maxWidth: '100%', margin: '0 0', overflowX: 'hidden' }}>
+		<div style={{ margin: '0 0', overflowX: 'hidden', position: 'relative' }}>
 			<BodyContainer>
 				<Title>Photography</Title>
 				<Subtitle>

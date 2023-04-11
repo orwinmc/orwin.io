@@ -6,19 +6,24 @@ const $Menu = styled('div')<{ isMenuOpen: boolean }>`
 	width: 100%;
 	height: 100%;
 	background: transparent;
-	backdrop-filter: blur(0px) opacity(0%);
+	backdrop-filter: blur(0px);
+	filter: blur(0px);
+	opacity: 0%;
 
 	z-index: -1;
 
-	transition: background 400ms, backdrop-filter 400ms, z-index 0s 400ms;
+	transition: background 400ms, backdrop-filter 400ms, opacity 400ms, z-index 0s 400ms;
 
 	${(props) =>
 		props.isMenuOpen &&
 		css`
 			z-index: 0;
 			background: rgba(255, 255, 255, 0.65);
-			backdrop-filter: blur(30px) opacity(100%);
-			transition: background 400ms, backdrop-filter 400ms, z-index 0s 0s;
+			backdrop-filter: blur(30px);
+			filter: blur(0px);
+			transition: background 400ms, backdrop-filter 400ms, opacity 400ms, z-index 0s 0s;
+			opacity: 100%;
+			color: black;
 
 			@media (prefers-color-scheme: dark) {
 				background: rgba(0, 0, 0, 0.65);
@@ -31,7 +36,7 @@ interface MenuProps {
 }
 
 function Menu({ isMenuOpen }: MenuProps): ReactElement {
-	return <$Menu isMenuOpen={isMenuOpen} />
+	return <$Menu isMenuOpen={isMenuOpen}></$Menu>
 }
 
 export default Menu
