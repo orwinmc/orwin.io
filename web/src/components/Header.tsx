@@ -113,6 +113,7 @@ const $MenuButton = styled('button')<{ isMenuOpen: boolean }>`
 		`}
 
 	cursor: pointer;
+	margin-left: 1em;
 `
 
 const $LogoType = styled.span`
